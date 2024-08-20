@@ -35,4 +35,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = employeeRepository.findAll();
         return employees.stream().map(EmployeeMapper::mapToEmployeeDto).collect(Collectors.toList());
     }
+
+    @Override
+    public EmployeeDto updateEmployee(Long id, EmployeeDto employeeDto) {
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
+        employee.setFullName(employeeDto.getFullName());
+        employee.setEmail(employeeDto.getEmail());
+        employee.setPhone(employeeDto.getPhone());
+        Employee savedEmployee = employeeRepository.save(employee);
+        return EmployeeMapper.mapToEmployeeDto(savedEmployee);
+    }
 }
