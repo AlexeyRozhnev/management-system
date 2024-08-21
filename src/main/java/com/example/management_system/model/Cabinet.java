@@ -7,18 +7,15 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "employees")
-public class Employee {
+@NoArgsConstructor
+@Table(name = "cabinets")
+public class Cabinet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "full_name")
-    private String fullName;
-    private String email;
-    private String phone;
-//    @ManyToOne
-//    @JoinColumn(name = "cabinet_id")
-//    private Cabinet cabinet;
+    @Column(name = "cabinet_name")
+    private String CabinetName;
+    @Column(name = "cabinet_address")
+    private String CabinetAddress;
 }
