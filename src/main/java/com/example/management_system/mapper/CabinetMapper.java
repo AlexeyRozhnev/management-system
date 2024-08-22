@@ -5,17 +5,17 @@ import com.example.management_system.model.Cabinet;
 
 public class CabinetMapper {
     public static CabinetDto mapToCabinetDto(Cabinet cabinet) {
-        return new CabinetDto(
-                cabinet.getId(),
-                cabinet.getCabinetName(),
-                cabinet.getCabinetAddress()
-        );
+        CabinetDto cabinetDto = new CabinetDto();
+        cabinetDto.setId(cabinet.getId());
+        cabinetDto.setCabinetName(cabinet.getCabinetName());
+        cabinetDto.setCabinetAddress(cabinet.getCabinetAddress());
+        return cabinetDto;
     }
     public static Cabinet mapToCabinet(CabinetDto cabinetDto) {
-        return new Cabinet(
-                cabinetDto.getId(),
-                cabinetDto.getCabinetName(),
-                cabinetDto.getCabinetAddress()
-        );
+        Cabinet cabinet = new Cabinet();
+        cabinet.setId(cabinetDto.getId());
+        cabinet.setCabinetName(cabinetDto.getCabinetName());
+        cabinet.setCabinetAddress(cabinetDto.getCabinetAddress());
+        return cabinet;
     }
 }
