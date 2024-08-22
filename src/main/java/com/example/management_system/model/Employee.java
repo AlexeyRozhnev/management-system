@@ -18,7 +18,9 @@ public class Employee {
     private String fullName;
     private String email;
     private String phone;
-//    @ManyToOne
-//    @JoinColumn(name = "cabinet_id")
-//    private Cabinet cabinet;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cabinet_id")
+    private Cabinet cabinet;
 }
+
+
